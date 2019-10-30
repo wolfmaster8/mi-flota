@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <title>Mi Flota</title>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="/">Mi Flota</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarText">
+        <span class="navbar-text mr-auto">
+      Lleva registro del uso de tu auto
+    </span>
+        <ul class="navbar-nav  ">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cerrar sesión</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Registra tu vehículo</li>
+    </ol>
+</nav>
+
+<div class="container w-50 ">
+    <div class="row ">
+        <div class="col-12">
+            <h3 class="text-center my-5">Adiciona los detalles de tu vehículo</h3>
+
+            <div  class="alert-vehicle-registered alert alert-success alert-dismissible fade show d-none" role="alert">
+                <strong>¡Genial!</strong> Vehículo registrado con éxito.
+            </div>
+
+            <form action="">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="mb-2 text-primary">Información básica</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="vehicleBrand">Marca</label>
+                            <select id="vehicleBrand" name="vehicleBrand" class="form-control form-control-sm">
+                                <option value="0">--Selecciona--</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="vehicleModel">Modelo</label>
+                            <input id="vehicleModel" name="vehicleModel" class="form-control form-control-sm" type="text"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="vehicleYear">Año</label>
+                            <select id="vehicleYear" name="vehicleYear" class="form-control form-control-sm">
+                                <option value="0">--Selecciona--</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <p class="mb-2 text-primary">Información de combustible</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="literByKm">Consumo (L/Km)</label>
+                            <input class="form-control form-control-sm" name="literByKm" id="literByKm" type="number">
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="currentKm">Kilometraje actual</label>
+                            <input class="form-control form-control-sm" name="currentKm" id="currentKm" type="number">
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="typeOfFuel">Tipo de Combustible</label>
+                            <select id="typeOfFuel" name="typeOfFuel" class="form-control form-control-sm">
+                                <option value="0">--Selecciona--</option>
+                                <option value="acpm">ACPM</option>
+                                <option value="bioDiesel">BioDiesel</option>
+                                <option value="diesel">Diesel</option>
+                                <option value="gas">Gas</option>
+                                <option value="gasolina">Gasolina</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <p class="mb-2 text-primary">Información de mantenimiento</p>
+                        <div class="form-group">
+                            <label for="lastRevision">Última fecha de revisión tecnico-mecánica</label>
+                            <input class="form-control form-control-sm" id="lastRevision" name="lastRevision" type="date">
+                        </div>
+                        <button class="btn btn-primary submit" type="submit">Registrar vehículo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script>
+    $(function () {
+        const vehicleBrands = [
+            {
+                'id': 'bmw',
+                'name': 'BMW'
+            }, {
+                'id': 'ford',
+                'name': 'Ford'
+            }, {
+                'id': 'chevrolet',
+                'name': 'Chevrolet'
+            }, {
+                'id': 'renault',
+                'name': 'Renault'
+            }, {
+                'id': 'fiat',
+                'name': 'Fiat'
+            }, {
+                'id': 'skoda',
+                'name': 'Skoda'
+            }, {
+                'id': 'toyota',
+                'name': 'Toyota'
+            }
+        ];
+        vehicleBrands.forEach(brand => {
+            $('#vehicleBrand').append(`<option value="${brand.id}">${brand.name}</option> `)
+        })
+    })
+</script>
+<script>
+    $(function () {
+        const actualYear = new Date().getFullYear()
+        for (i = actualYear; i >= 1910; i--) {
+            $('#vehicleYear').append(`<option value="${i}">${i}</option> `)
+        }
+    })
+</script>
+<script>
+    $(".submit").click(function(e){
+        e.preventDefault();
+        console.log('asas')
+        $('.alert-vehicle-registered').removeClass('d-none')
+    });
+</script>
+</body>
+</html>
