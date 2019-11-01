@@ -1,0 +1,126 @@
+@import './bootstrap.min.css';
+* {
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.placa {
+  background: #e1b828;
+  border: 2px solid #212121;
+  border-radius: 5px;
+  color: #212121;
+  padding: 4px 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+#login-container {
+  background-image: linear-gradient(black, #414141);
+  margin: 0;
+  height: 100vh;
+  padding: 0;
+  min-width: 100%;
+  background-repeat: no-repeat;
+}
+#login-container .card-container.card {
+  max-width: 350px;
+  padding: 40px 40px;
+}
+#login-container .btn {
+  font-weight: 700;
+  height: 36px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+#login-container .card {
+  max-width: 350px;
+  padding: 40px 40px;
+  background-color: #F7F7F7;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+#login-container .tarjeta-imagen-perfil {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+#login-container .tarjeta-nombre-perfil {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0 0;
+  min-height: 1em;
+}
+#login-container .bloque-autenticacion {
+  display: block;
+  color: #404040;
+  line-height: 2;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#login-container .formulario-inicio-sesion #email, #login-container .formulario-inicio-sesion #password {
+  direction: ltr;
+  height: 44px;
+  font-size: 16px;
+}
+#login-container .formulario-inicio-sesion input[type=email],
+#login-container .formulario-inicio-sesion input[type=password],
+#login-container .formulario-inicio-sesion input[type=text],
+#login-container .formulario-inicio-sesion button {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  z-index: 1;
+  position: relative;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#login-container .formulario-inicio-sesion .form-control:focus {
+  border-color: #ffd05b;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #ffd05b;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #ffd05b;
+}
+#login-container .btn.btn-inicio-sesion {
+  background-color: black;
+  padding: 0px;
+  font-weight: 700;
+  font-size: 14px;
+  height: 36px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  -o-transition: all 0.218s;
+  -moz-transition: all 0.218s;
+  -webkit-transition: all 0.218s;
+  transition: all 0.218s;
+}
+#login-container .btn.btn-inicio-sesion:hover, #login-container .btn.btn-inicio-sesion:active, #login-container .btn.btn-inicio-sesion:focus {
+  background-color: #ffd05b;
+}
+#login-container .clave-olvidada {
+  color: #6891a2;
+}
+#login-container .clave-olvidada:hover, #login-container .clave-olvidada:active, #login-container .clave-olvidada:focus {
+  color: #0c6121;
+}
+
+/*# sourceMappingURL=all.css.map */
