@@ -1,3 +1,16 @@
 * {
   font-family: 'Lexend Deca', sans-serif;
 }
+
+$yellow: #e1b828;
+$black: #212121;
+
+.placa{
+  background: $yellow;
+  border: 2px solid $black;
+  border-radius: 5px;
+  color: $black;
+  padding: 4px 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
