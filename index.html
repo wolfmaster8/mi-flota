@@ -1,38 +1,45 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>-->
-    <link rel="stylesheet" href="style/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
-    <title>Mi Flota - Inicio de Sesión</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro Vehicular</title>
 </head>
-
 <body>
-<div id="login-container" class="container d-flex align-items-center justify-content-center">
-    <div class="card card-container">
-        <img class="tarjeta-imagen-perfil" alt="perfil" src="img/login-driver.png" />
-        <p class="tarjeta-nombre-perfil"></p>
-        <form class="formulario-inicio-sesion" action="#">
-            <span class="bloque-autenticacion"></span>
-            <input type="email" id="email" class="form-control" placeholder="Correo electrónico" required
-                   autofocus>
-            <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
-            <div id="recordar" class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> Recordarme
-                </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block btn-inicio-sesion" type="submit">Iniciar sesión</button>
+    <center><h1>Registro Vehicular</h1></center>
+    <h2>Datos del Propietario: </h2>
+    <form action="registrovehicular.php" method="GET">
+        <p>Primer Nombre: <input type="text" placeholder="ingrese su nombre"> Segundo Nombre: <input type="text" placeholder="ingrese su nombre"> 
+        Primer Apellido: <input type="text" placeholder="ingrese su apellido"> Segundo Apellido: <input type="text" placeholder="ingrese su apellido"> </p>
+        <p>Numero de Documento <input type="text" name="nombrecompleto" maxlength="10"> Numero de Telefono <input type="tel">
+        Fecha de Nacimiento <input type="date"> Sexo <input type="radio" name="" id=""> Masculino <input type="radio" name="" id=""> Femenino</p>
+        <p>Correo Electronico <input type="email"> </p>
+        
+
+        <br><h2>Datos del Vehiculo: </h2></br> 
+        <p>Placa:<input type="text" name="placa"> Linea <input type="text" name="linea"> Modelo <input type="text" name="Modelo">
+            Cilindrada CC <input type="text" name="Cilindrada"> Color <input type="color" name="Color">
+            Marca:<select name="" id="">
+            <option value="Toyota">Toyota</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Renault">Renault</option>
+            <option value="mazda">mazda</option>
+            <option value="Hiundai">Hiundai</option></select></p>
+
+            <p>Servicio <input type="text" name="Servicio"> Clase de vehiculo <input type="text" name="Clase de vehiculo"> 
+            Tipo de Carroceria <input type="text" neme="Tipo de Carroceria"> Capacidad <input type="text" name="Capacidad" size="2"> Numero de Serie <input type="text" name="Numero de serie"> </p>
+
+             
+
+        </select></p>
+        <p>
+    Deja un mensaje:
+    <textarea name="mensaje"></textarea>
+  
+  <input type="submit" value="Enviar la información">       
+              
+            </p>
         </form>
-        <a href="#" class="clave-olvidada">
-            ¿Olvidó su contraseña?
-        </a>
-    </div>
-</div>
-
 </body>
-
 </html>
