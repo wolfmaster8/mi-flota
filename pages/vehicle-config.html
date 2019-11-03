@@ -56,31 +56,45 @@
                     <div class="col-12">
                         <p class="mb-2 text-primary">Información básica</p>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="plate">Placa</label>
+                            <input autofocus id="plate" name="vehicleModel" class="form-control form-control-sm" maxlength="6" type="text"/>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
                         <div class="form-group">
                             <label for="vehicleBrand">Marca</label>
                             <select id="vehicleBrand" name="vehicleBrand" class="form-control form-control-sm">
                                 <option value="0">--Selecciona--</option>
                             </select>
                         </div>
-
                     </div>
-                    <div class="col-4">
+
+                    <div class="col-3">
                         <div class="form-group">
                             <label for="vehicleModel">Modelo</label>
                             <input id="vehicleModel" name="vehicleModel" class="form-control form-control-sm" type="text"/>
                         </div>
                     </div>
-                    <div class="col-4">
+
+                    <div class="col-3">
                         <div class="form-group">
                             <label for="vehicleYear">Año</label>
                             <select id="vehicleYear" name="vehicleYear" class="form-control form-control-sm">
                                 <option value="0">--Selecciona--</option>
-
                             </select>
                         </div>
-
                     </div>
+
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="color">Color</label>
+                            <input id="color" class="form-control" type="color" name="color">
+                        </div>
+                    </div>
+
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
@@ -184,7 +198,7 @@
 <script>
     $(".submit").click(function(e){
         e.preventDefault();
-        console.log('asas')
+        console.log('Click')
         $('.alert-vehicle-registered').removeClass('d-none')
     });
 </script>

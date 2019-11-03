@@ -109,6 +109,7 @@
     -moz-transition: all 0.218s;
     -webkit-transition: all 0.218s;
     transition: all 0.218s;
+    cursor: pointer;
 
     &:hover, &:active, &:focus{
       background-color: rgb(255, 208, 91);
