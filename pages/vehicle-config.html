@@ -37,7 +37,7 @@
 </nav>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href=dashboard.html#">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
         <li class="breadcrumb-item active" aria-current="page">Agregar vehículo</li>
     </ol>
 </nav>
@@ -51,7 +51,7 @@
                 <strong>¡Genial!</strong> Vehículo registrado con éxito.
             </div>
 
-            <form action="">
+            <form>
                 <div class="row">
                     <div class="col-12">
                         <p class="mb-2 text-primary">Información básica</p>
@@ -182,18 +182,19 @@
                 'name': 'Toyota'
             }
         ];
-        vehicleBrands.forEach(brand => {
-            $('#vehicleBrand').append(`<option value="${brand.id}">${brand.name}</option> `)
-        })
-    })
+        vehicleBrands.forEach((brand) => {
+            $('#vehicleBrand')
+                .append(`<option value="${brand.id}">${brand.name}</option>`);
+        });
+    });
 </script>
 <script>
     $(function () {
-        const actualYear = new Date().getFullYear()
+        const actualYear = new Date().getFullYear();
         for (i = actualYear; i >= 1910; i--) {
-            $('#vehicleYear').append(`<option value="${i}">${i}</option> `)
+            $('#vehicleYear').append(`<option value="${i}">${i}</option> `);
         }
-    })
+    });
 </script>
 <script>
     $(".submit").click(function(e){
