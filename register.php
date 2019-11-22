@@ -65,7 +65,7 @@
                 <button type="submit" class="btn btn-primary submit btn-block btn-inicio-sesion">Enviar</button>
 
             </form>
-            <a href="index.html" class="clave-olvidada">
+            <a href="index.php" class="clave-olvidada">
                 ¿Ya tienes cuenta?
             </a>
         </div>
