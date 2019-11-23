@@ -1,57 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>-->
-    <link rel="stylesheet" href="../style/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
-          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <title>Mi Flota</title>
-</head>
-<body>
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-    <a class="navbar-brand" href="dashboard.html">Mi Flota</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse " id="navbarText">
-        <span class="navbar-text mr-auto">
-      Lleva registro del uso de tu auto
-    </span>
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="vehicle-config.html">Agregar vehículo</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="vehicle-ride.html">Registrar Recorrido</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../index.html">Cerrar sesión</a>
-            </li>
-        </ul>
-
-    </div>
-</nav>
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Agregar vehículo</li>
-    </ol>
-</nav>
+<?php
+session_start();
+include_once 'shared/isUserAuthorized.php';
+include_once 'components/header.php';
+include_once 'components/breadcumbs.php';
+renderHeader('Adicionar vehículo');
+renderBreadcumb(['Configuración de nuevo vehículo']);
+?>
 
 <div class="container w-50 ">
     <div class="row ">
         <div class="col-12">
             <h3 class="text-center my-5">Adiciona los detalles de tu vehículo</h3>
-
-            <div  class="alert-vehicle-registered alert alert-success alert-dismissible fade show d-none" role="alert">
-                <strong>¡Genial!</strong> Vehículo registrado con éxito.
-            </div>
-
-            <form>
+            <form id="createVehicle" method="POST">
                 <div class="row">
                     <div class="col-12">
                         <p class="mb-2 text-primary">Información básica</p>
@@ -59,7 +19,7 @@
                     <div class="col-3">
                         <div class="form-group">
                             <label for="plate">Placa</label>
-                            <input autofocus id="plate" name="vehicleModel" class="form-control form-control-sm" maxlength="6" type="text"/>
+                            <input autofocus id="plate" name="plate" class="form-control form-control-sm" maxlength="6" type="text"/>
                         </div>
                     </div>
 
@@ -132,10 +92,9 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <p class="mb-2 text-primary">Información de mantenimiento</p>
                         <div class="form-group">
-                            <label for="lastRevision">Última fecha de revisión tecnico-mecánica</label>
-                            <input class="form-control form-control-sm" id="lastRevision" name="lastRevision" type="date">
+                            <label for="personalizedName">Nombre personalizado</label>
+                            <input class="form-control form-control-sm" id="personalizedName" name="personalizedName" placeholder="Carro gris" type="text">
                         </div>
                         <button class="btn btn-primary submit" type="submit">Registrar vehículo</button>
                     </div>
@@ -146,45 +105,33 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+<?php
+include_once 'components/footer.php';
+renderFooter()
+?>
 
 <script>
     $(function () {
         const vehicleBrands = [
             {
-                'id': 'bmw',
                 'name': 'BMW'
             }, {
-                'id': 'ford',
                 'name': 'Ford'
             }, {
-                'id': 'chevrolet',
                 'name': 'Chevrolet'
             }, {
-                'id': 'renault',
                 'name': 'Renault'
             }, {
-                'id': 'fiat',
                 'name': 'Fiat'
             }, {
-                'id': 'skoda',
                 'name': 'Skoda'
             }, {
-                'id': 'toyota',
                 'name': 'Toyota'
             }
         ];
         vehicleBrands.forEach((brand) => {
             $('#vehicleBrand')
-                .append(`<option value="${brand.id}">${brand.name}</option>`);
+                .append(`<option value="${brand.name}">${brand.name}</option>`);
         });
     });
 </script>
@@ -197,11 +144,11 @@
     });
 </script>
 <script>
-    $(".submit").click(function(e){
-        e.preventDefault();
-        console.log('Click')
-        $('.alert-vehicle-registered').removeClass('d-none')
-    });
+    sendAjaxPost('api/vehicles/create.php',
+        '#createVehicle',
+        '.submit',
+        false,
+    );
 </script>
 </body>
 </html>
