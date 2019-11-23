@@ -14,12 +14,9 @@ function renderFooter(){
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
-<script src="ajax/sendAjax.js"></script>
+<script src="ajax/postAjax.js"></script>
         </body>
 </html>';
-}
-
-function renderLogoutFunction(){
     echo "<script>
 sendAjaxPost('api/auth/logout.php',
         '#login',
@@ -28,4 +25,8 @@ sendAjaxPost('api/auth/logout.php',
         'index.php'
     );
 </script>";
+}
+
+function renderGetAjaxFunction(){
+    echo '<script src="ajax/getAjax.js"></script>';
 }

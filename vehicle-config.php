@@ -1,7 +1,9 @@
 <?php
+session_start();
+include_once 'shared/isUserAuthorized.php';
 include_once 'components/header.php';
 include_once 'components/breadcumbs.php';
-renderHeader('Dashboard');
+renderHeader('Adicionar vehículo');
 renderBreadcumb(['Configuración de nuevo vehículo']);
 ?>
 
@@ -9,12 +11,7 @@ renderBreadcumb(['Configuración de nuevo vehículo']);
     <div class="row ">
         <div class="col-12">
             <h3 class="text-center my-5">Adiciona los detalles de tu vehículo</h3>
-
-            <div  class="alert-vehicle-registered alert alert-success alert-dismissible fade show d-none" role="alert">
-                <strong>¡Genial!</strong> Vehículo registrado con éxito.
-            </div>
-
-            <form>
+            <form id="createVehicle" method="POST">
                 <div class="row">
                     <div class="col-12">
                         <p class="mb-2 text-primary">Información básica</p>
@@ -22,7 +19,7 @@ renderBreadcumb(['Configuración de nuevo vehículo']);
                     <div class="col-3">
                         <div class="form-group">
                             <label for="plate">Placa</label>
-                            <input autofocus id="plate" name="vehicleModel" class="form-control form-control-sm" maxlength="6" type="text"/>
+                            <input autofocus id="plate" name="plate" class="form-control form-control-sm" maxlength="6" type="text"/>
                         </div>
                     </div>
 
@@ -95,10 +92,9 @@ renderBreadcumb(['Configuración de nuevo vehículo']);
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <p class="mb-2 text-primary">Información de mantenimiento</p>
                         <div class="form-group">
-                            <label for="lastRevision">Última fecha de revisión tecnico-mecánica</label>
-                            <input class="form-control form-control-sm" id="lastRevision" name="lastRevision" type="date">
+                            <label for="personalizedName">Nombre personalizado</label>
+                            <input class="form-control form-control-sm" id="personalizedName" name="personalizedName" placeholder="Carro gris" type="text">
                         </div>
                         <button class="btn btn-primary submit" type="submit">Registrar vehículo</button>
                     </div>
@@ -118,31 +114,24 @@ renderFooter()
     $(function () {
         const vehicleBrands = [
             {
-                'id': 'bmw',
                 'name': 'BMW'
             }, {
-                'id': 'ford',
                 'name': 'Ford'
             }, {
-                'id': 'chevrolet',
                 'name': 'Chevrolet'
             }, {
-                'id': 'renault',
                 'name': 'Renault'
             }, {
-                'id': 'fiat',
                 'name': 'Fiat'
             }, {
-                'id': 'skoda',
                 'name': 'Skoda'
             }, {
-                'id': 'toyota',
                 'name': 'Toyota'
             }
         ];
         vehicleBrands.forEach((brand) => {
             $('#vehicleBrand')
-                .append(`<option value="${brand.id}">${brand.name}</option>`);
+                .append(`<option value="${brand.name}">${brand.name}</option>`);
         });
     });
 </script>
@@ -155,11 +144,11 @@ renderFooter()
     });
 </script>
 <script>
-    $(".submit").click(function(e){
-        e.preventDefault();
-        console.log('Click')
-        $('.alert-vehicle-registered').removeClass('d-none')
-    });
+    sendAjaxPost('api/vehicles/create.php',
+        '#createVehicle',
+        '.submit',
+        false,
+    );
 </script>
 </body>
 </html>

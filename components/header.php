@@ -25,15 +25,13 @@ function renderHeader($pageTitle){
     </button>
     <div class="collapse navbar-collapse " id="navbarText">
         <span class="navbar-text mr-auto">
-      Lleva registro del uso de tu auto
+      Hola '.$_SESSION['name'].'
     </span>
         <ul class="navbar-nav  ">
             <li class="nav-item">
                 <a class="nav-link" href="vehicle-config.php">Agregar vehículo</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="vehicle-ride.html">Registrar Recorrido</a>
-            </li>
+          
             <li class="nav-item">
                 <a class="nav-link logout" >Cerrar sesión</a>
             </li>
