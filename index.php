@@ -32,7 +32,7 @@
 <script>
     $(".submit").click(function(e){
         e.preventDefault();
-        window.location.href = "pages/dashboard.html";
+        window.location.href = "pages/dashboard.php";
     });
 </script>
 </body>
