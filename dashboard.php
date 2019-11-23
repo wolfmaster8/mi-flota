@@ -13,7 +13,7 @@ renderBreadcumb();
             <h1 class="text-center">
                 Mis vehículos
             </h1>
-            <div class="cars row"></div>
+            <div class="cars row "></div>
         </div>
     </div>
 </div>
@@ -32,7 +32,7 @@ renderGetAjaxFunction();
     const parsedVehicles = JSON.parse(loadUserCars.responseText);
     if(parsedVehicles.length){
         parsedVehicles.forEach(car => {
-            const template = `<div class="col-4">
+            const template = `<div class="col-4 ">
                             <div class="card" style="width: 18rem;">
                             <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-muted mb-3 mt-2">

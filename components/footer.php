@@ -1,6 +1,7 @@
 <?php
 
-function renderFooter(){
+function renderFooter()
+{
     echo '
      <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -27,6 +28,13 @@ sendAjaxPost('api/auth/logout.php',
 </script>";
 }
 
-function renderGetAjaxFunction(){
+function renderGetAjaxFunction()
+{
     echo '<script src="ajax/getAjax.js"></script>';
+}
+
+function renderDeleteAjaxFunction()
+{
+    echo '<script src="ajax/deleteAjax.js"></script>
+';
 }

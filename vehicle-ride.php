@@ -50,17 +50,12 @@ renderBreadcumb(['Vehículo', 'Adicionar viaje']);
                         </div>
                     </div>
                     <div class="col-12">
-
                         <button class="btn btn-primary submit" type="submit">Añadir</button>
                     </div>
-
                 </div>
-
-
             </form>
             <h3 class="mt-5 text-center">Tus viajes</h3>
             <div class="journeys row"></div>
-
         </div>
     </div>
 </div>
@@ -71,12 +66,22 @@ include_once 'components/footer.php';
 
 renderFooter();
 renderGetAjaxFunction();
+renderDeleteAjaxFunction();
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
         integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"
         integrity="sha256-bETP3ndSBCorObibq37vsT+l/vwScuAc9LRJIQyb068=" crossorigin="anonymous"></script>
 <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+<script>
+    function onDelete(id) {
+        const data = {rideId: id}
+        console.log(id);
+        sendAjaxDelete('api/rides/delete.php', data, () => resetAll())
+    }
+
+</script>
 
 <script>
     <?php echo 'var vehicleId=' . $_GET['vehicleId'] . ';' ?>
@@ -123,7 +128,7 @@ renderGetAjaxFunction();
             },
             data: [{
                 yValueFormatString: "#,### Km",
-                xValueFormatString: "MMMM",
+                xValueFormatString: "MMMM DD",
                 type: "spline",
                 dataPoints
             }]
@@ -140,13 +145,22 @@ renderGetAjaxFunction();
         const parsedRides = JSON.parse(loadUserJourneys.responseText);
         if (parsedRides.length) {
             parsedRides.forEach(ride => {
-                const template = `<div class="col-12 mt-2">
-                            <div class="card">
-                            <div class="card-body">
-                            <h5 class="card-title mb-0 d-flex flex-grow-1 justify-content-between"><span>${ride.journey_name}</span> <span><i class="fas fa-tachometer-alt"></i> ${ride.kilometers} km</span></h5>
-                            <p class="mb-0">${moment(ride.journey_date).fromNow()}</p>
-                            </div>
-                            </div>
+                const template = `
+                        <div class="col-12 mt-2">
+                <div class="card">
+                <div class="card-body">
+                <div class="card-title mb-0 d-flex flex-grow-1 justify-content-between">
+                <div><h5 class="mb-0">${ride.journey_name} </h5> <p class="mb-0 text-info font-body">${moment(ride.journey_date).fromNow()}</p></div>
+                <span><i class="fas fa-tachometer-alt"></i> ${ride.kilometers} km
+                <div class="text-right p-1">
+                <button type="button" class="close" onclick="onDelete(${ride.id})">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                </span>
+                </div>
+                </div>
+                </div>
                             </div>`;
                 $('.journeys').append(template)
             });
