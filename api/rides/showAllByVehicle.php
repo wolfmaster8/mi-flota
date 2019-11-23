@@ -21,7 +21,7 @@ function showAllUserRidesByVehicle($conn, $vehicleId)
 {
     try {
         $userId = $_SESSION['id'];
-        $sql = "SELECT * FROM vehicle_rides WHERE user_id='$userId' AND vehicle_id='$vehicleId' ORDER BY journey_date ASC;";
+        $sql = "SELECT * FROM vehicle_rides WHERE user_id='$userId' AND vehicle_id='$vehicleId' ORDER BY journey_date DESC;";
         $result = mysqli_query($conn, $sql);
         $rows = array();
         while($row = mysqli_fetch_assoc($result)){

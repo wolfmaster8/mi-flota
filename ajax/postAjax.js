@@ -1,6 +1,6 @@
-function sendAjaxPost(apiRoute, formId, buttonName, toast = false, redirect = null) {
+function sendAjaxPost(apiRoute, formId, buttonClass, toast = false, redirect = null,action = () => {}) {
     $(document).ready(function () {
-        $(document).on('click', buttonName, function (e) {
+        $(document).on('click', buttonClass, function (e) {
             e.preventDefault();
             const data = $(formId).serialize();
             $.ajax({
@@ -12,7 +12,10 @@ function sendAjaxPost(apiRoute, formId, buttonName, toast = false, redirect = nu
                         toastr.clear();
                         toastr.success(response);
                     } else {
-                        message('success', response);
+                        Swal.fire({icon: 'success', title: response});
+                    }
+                    if(action){
+                        action()
                     }
                     if(redirect){
                         document.location.href = redirect
@@ -23,19 +26,11 @@ function sendAjaxPost(apiRoute, formId, buttonName, toast = false, redirect = nu
                         toastr.clear();
                         toastr.error(error.responseText);
                     } else {
-                        message('error', 'Error', error.responseText);
+                        Swal.fire({icon: 'error', title: error.responseText});
                     }
                 }
             })
         })
 
     });
-}
-
-function message(type, title = '', text = '') {
-    swal({
-        type,
-        title,
-        text
-    })
 }

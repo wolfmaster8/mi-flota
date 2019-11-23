@@ -9,7 +9,7 @@ renderBreadcumb(['Vehículo', 'Adicionar viaje']);
 
 <div class="container mb-5">
     <div class="row ">
-        <div class="col-6 d-flex flex-column justify-content-center align-content-center mt-5">
+        <div class="col-6 d-flex flex-column justify-content-start mt-5">
             <div class="odometro">
                 <p class="title-odometro text-center p-0 m-0">Odómetro</p>
                 <h3 class="value-odometro text-center p-0 m-0">
@@ -68,38 +68,46 @@ renderBreadcumb(['Vehículo', 'Adicionar viaje']);
 
 <?php
 include_once 'components/footer.php';
+
 renderFooter();
 renderGetAjaxFunction();
 ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+        integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"
+        integrity="sha256-bETP3ndSBCorObibq37vsT+l/vwScuAc9LRJIQyb068=" crossorigin="anonymous"></script>
 <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 
 <script>
-    window.onload = function () {
-
-
-    }
-</script>
-<script>
-    <?php echo 'var vehicleId='.$_GET['vehicleId'].';' ?>
+    <?php echo 'var vehicleId=' . $_GET['vehicleId'] . ';' ?>
+    var now = moment();
     getInformation();
-    sendAjaxPost(`api/rides/create.php?vehicleId=${vehicleId}`,
+    sendAjaxPost(
+        `api/rides/create.php?vehicleId=${vehicleId}`,
         '#createJourney',
         '.submit',
         false,
+        null,
+        () => resetAll()
     );
 
-    function getOdometerInfo(rides){
+    function resetAll() {
+        $('.journeys').empty();
+        getInformation()
+    }
+
+    function getOdometerInfo(rides = []) {
         const getCarInfo = getAjax({
             loadUrl: `api/vehicles/showOne.php?vehicleId=${vehicleId}`
         });
         const {actual_km} = JSON.parse(getCarInfo.responseText)[0];
-        const total = Object.values(rides).reduce((total, {kilometers})=> total + Number(kilometers), Number(actual_km))
+        const total = Object.values(rides).reduce((total, {kilometers}) => total + Number(kilometers), Number(actual_km))
         $('.totalKilometes').html(total)
     }
 
-    function renderStats(rides){
+    function renderStats(rides) {
 
-        const dataPoints = rides.map(ride =>{
+        const dataPoints = rides.map(ride => {
             return {x: new Date(ride.journey_date), y: Number(ride.kilometers)}
         });
         var options = {
@@ -121,31 +129,36 @@ renderGetAjaxFunction();
             }]
         };
         $("#chartDistance").CanvasJSChart(options);
+
+
     }
 
-    function getInformation(){
+    function getInformation() {
         const loadUserJourneys = getAjax({
             loadUrl: `api/rides/showAllByVehicle.php?vehicleId=${vehicleId}`
         });
         const parsedRides = JSON.parse(loadUserJourneys.responseText);
-        if(parsedRides.length){
+        if (parsedRides.length) {
             parsedRides.forEach(ride => {
                 const template = `<div class="col-12 mt-2">
                             <div class="card">
                             <div class="card-body">
                             <h5 class="card-title mb-0 d-flex flex-grow-1 justify-content-between"><span>${ride.journey_name}</span> <span><i class="fas fa-tachometer-alt"></i> ${ride.kilometers} km</span></h5>
+                            <p class="mb-0">${moment(ride.journey_date).fromNow()}</p>
                             </div>
                             </div>
                             </div>`;
                 $('.journeys').append(template)
-            })
+            });
 
             getOdometerInfo(parsedRides);
             renderStats(parsedRides)
 
-        }else{
+        } else {
             const emptyTemplate = `<div class="col-12 text-center">No has agregado ningún viaje</div>`;
-            $('.journeys').append(emptyTemplate)
+            $('.journeys').append(emptyTemplate);
+            getOdometerInfo();
+            $("#chartDistance").html('<p class="text-center">No has agregado viajes</p>')
         }
     }
 
