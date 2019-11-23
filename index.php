@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!empty($_SESSION['id'])){
+    header("Location: dashboard.php?redirect=login");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 

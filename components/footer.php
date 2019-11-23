@@ -28,12 +28,12 @@ sendAjaxPost('api/auth/logout.php',
 </script>";
 }
 
-function renderGetAjaxFunction()
+function renderGetAjaxScript()
 {
     echo '<script src="ajax/getAjax.js"></script>';
 }
 
-function renderDeleteAjaxFunction()
+function renderDeleteAjaxScript()
 {
     echo '<script src="ajax/deleteAjax.js"></script>
 ';

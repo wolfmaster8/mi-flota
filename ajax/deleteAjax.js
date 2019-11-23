@@ -11,7 +11,7 @@ function sendAjaxDelete(apiRoute, data, action = () => {
         if (result.value) {
             deleteAjax(apiRoute, data, action)
         } else {
-            Swal.fire({icon: 'info', timer: 1500, showConfirmButton: false, title: 'Cancelado',})
+            Swal.fire({icon: 'info', timer: 1500, showConfirmButton: false, title: 'Cancelado'})
         }
     })
 
