@@ -23,9 +23,9 @@ if(!empty($_SESSION['id'])){
         <img class="tarjeta-imagen-perfil" alt="perfil" src="img/login-driver.png" />
         <p class="tarjeta-nombre-perfil"></p>
         <form id="login" class="formulario-inicio-sesion" method="POST">
-            <input type="email" value="jflobom@gmail.com" name="email" class="form-control" placeholder="juan@ejemplo.com" required
+            <input type="email"  name="email" class="form-control" placeholder="juan@ejemplo.com" required
                    autofocus>
-            <input type="password" value="123" name="password" class="form-control" placeholder="Contraseña" required>
+            <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
             <button class="btn btn-lg btn-primary btn-block btn-inicio-sesion submit" type="submit">Iniciar sesión</button>
         </form>
         <a href="register.php" class="clave-olvidada">
