@@ -11,7 +11,7 @@
             <h1 class="text-center text-white h3">Regístrate</h1>
     <div class="card card-container">
         <div class="row d-flex justify-content-center">
-            <form class="formulario-inicio-sesion" method="POST">
+            <form id="addUser" class="formulario-inicio-sesion" method="POST">
                 <div class="form-group d-flex justify-content-center flex-column">
                     <label class="text-center" for="name">Nombre</label>
                     <input id="name" autofocus name="name" type="text" class="form-control" placeholder="Wilmer">
@@ -27,18 +27,12 @@
                 </div>
 
                 <div class="form-group d-flex justify-content-center flex-column">
-                    <label class="text-center" for="tel">Teléfono</label>
-                    <input id="tel"  class="form-control" placeholder="(+57) 300-xxx-xxxx" name="tel" type="tel">
-                </div>
-
-                <div class="form-group d-flex justify-content-center flex-column">
-                    <label class="text-center" for="birthDate">Fecha de Nacimiento</label>
-                    <input id="birthDate" name="birthDate"  class="form-control" type="date">
-                </div>
-
-                <div class="form-group d-flex justify-content-center flex-column">
                     <label class="text-center" for="email">Email</label>
                     <input id="email" name="email" placeholder="wilmer@ejemplo.com" type="email" class="form-control">
+                </div>
+                <div class="form-group d-flex justify-content-center flex-column">
+                    <label class="text-center" for="password">Contraseña</label>
+                    <input id="password" name="password"  type="password" class="form-control">
                 </div>
 
 
@@ -62,7 +56,7 @@
                     Deja un mensaje:
                     <textarea name="mensaje"></textarea>-->
 
-                <button type="submit" class="btn btn-primary submit btn-block btn-inicio-sesion">Enviar</button>
+                <button  name="submit" class="btn btn-primary submit btn-block btn-inicio-sesion submit">Enviar</button>
 
             </form>
             <a href="index.php" class="clave-olvidada">
@@ -71,15 +65,22 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="ajax/sendAjax.js"></script>
+
 <script>
-    $(".submit").click(function(e){
-        e.preventDefault();
-        window.location.href = "pages/dashboard.php"
-    });
+        enviarAjax('api/users/create.php',
+            '#addUser',
+            '.submit',
+        );
+        // window.location.href = "pages/dashboard.php"
 </script>
+
 </body>
 
 </html>
