@@ -1,4 +1,4 @@
-function enviarAjax(apiRoute, formId, buttonName) {
+function sendAjaxPost(apiRoute, formId, buttonName, toast = false, redirect = null) {
     $(document).ready(function () {
         $(document).on('click', buttonName, function (e) {
             e.preventDefault();
@@ -7,12 +7,24 @@ function enviarAjax(apiRoute, formId, buttonName) {
                 url: apiRoute,
                 method: 'POST',
                 data: data,
-                // dataType:'json',
                 success: function (response) {
-                    message('success', response);
+                    if (toast) {
+                        toastr.clear();
+                        toastr.success(response);
+                    } else {
+                        message('success', response);
+                    }
+                    if(redirect){
+                        document.location.href = redirect
+                    }
                 },
                 error: function (error) {
-                    message('error', 'Error', error.responseText);
+                    if (toast) {
+                        toastr.clear();
+                        toastr.error(error.responseText);
+                    } else {
+                        message('error', 'Error', error.responseText);
+                    }
                 }
             })
         })
@@ -20,7 +32,7 @@ function enviarAjax(apiRoute, formId, buttonName) {
     });
 }
 
-function message(type, title, text = '') {
+function message(type, title = '', text = '') {
     swal({
         type,
         title,

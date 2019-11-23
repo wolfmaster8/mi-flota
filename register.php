@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/all.css">
-    <title>Regiístrate</title>
+    <title>Regístrate</title>
 </head>
 <body>
 <div id="login-container" class="container d-flex flex-column align-items-center justify-content-center">
@@ -35,27 +35,6 @@
                     <input id="password" name="password"  type="password" class="form-control">
                 </div>
 
-
-                <!--<br><h2>Datos del Vehiculo: </h2></br>
-                <p>Placa:<input type="text" name="placa"> Linea <input type="text" name="linea"> Modelo <input type="text" name="Modelo">
-                    Cilindrada CC <input type="text" name="Cilindrada"> Color <input type="color" name="Color">
-                    Marca:<select name="" id="">
-                        <option value="Toyota">Toyota</option>
-                        <option value="Chevrolet">Chevrolet</option>
-                        <option value="Renault">Renault</option>
-                        <option value="mazda">mazda</option>
-                        <option value="Hiundai">Hiundai</option></select></p>
-
-                <p>Servicio <input type="text" name="Servicio"> Clase de vehiculo <input type="text" name="Clase de vehiculo">
-                    Tipo de Carroceria <input type="text" neme="Tipo de Carroceria"> Capacidad <input type="text" name="Capacidad" size="2"> Numero de Serie <input type="text" name="Numero de serie"> </p>
-
-
-
-                </select></p>
-                <p>
-                    Deja un mensaje:
-                    <textarea name="mensaje"></textarea>-->
-
                 <button  name="submit" class="btn btn-primary submit btn-block btn-inicio-sesion submit">Enviar</button>
 
             </form>
@@ -65,20 +44,18 @@
         </div>
     </div>
 </div>
-<script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.9/dist/sweetalert2.all.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script src="ajax/sendAjax.js"></script>
+
+<?php
+include_once 'components/footer.php';
+renderFooter()
+?>
+
 
 <script>
-        enviarAjax('api/users/create.php',
+    sendAjaxPost('api/users/create.php',
             '#addUser',
             '.submit',
         );
-        // window.location.href = "pages/dashboard.php"
 </script>
 
 </body>

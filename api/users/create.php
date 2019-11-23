@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+header('Content-Type: application/json');
 controller();
 
 
@@ -8,6 +8,8 @@ function controller()
 {
     try {
         include "../config/dbconfig.php";
+        include_once "../shared/validateUser.php";
+        include_once "../shared/validateFields.php";
         $user = array();
         $user['name'] = mysqli_real_escape_string($conn, $_POST['name']);
         $user['lastName'] = mysqli_real_escape_string($conn, $_POST['lastName']);
@@ -16,33 +18,11 @@ function controller()
         $user['password'] = mysqli_real_escape_string($conn, $_POST['password']);
 
         validateFields($user);
-        validateIfUserExists($conn, $user['email']);
+        validateIfUserIsAlreadyCreated($conn, $user['email']);
         createUser($conn, $user);
     } catch (PDOException $exception) {
         http_response_code(500);
     }
-}
-
-function validateFields($allFields)
-{
-    if (empty($allFields['name']) || empty($allFields['lastName']) || empty($allFields['email']) || empty($allFields['cc']) || empty($allFields['password'])) {
-        print_r($allFields['name']);
-        echo json_encode('Revisa los campos');
-        http_response_code(400);
-        exit();
-    }
-}
-
-function validateIfUserExists($conn, $email)
-{
-    $sqlEmail = "SELECT id FROM users WHERE email='$email'";
-    $result = mysqli_query($conn, $sqlEmail);
-    $numRowsEmail = mysqli_num_rows($result);
-    if ($numRowsEmail != 0) {
-        echo json_encode('Ya existe un usuario con ese email');
-        http_response_code(400);
-        exit();
-    };
 }
 
 

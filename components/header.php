@@ -9,8 +9,9 @@ function renderHeader($pageTitle){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>-->
-    <link rel="stylesheet" href="../style/all.css">
+    <link rel="stylesheet" href="./style/all.css">
     <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
           integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <title>Mi Flota - '.$pageTitle.'</title>
@@ -34,7 +35,7 @@ function renderHeader($pageTitle){
                 <a class="nav-link" href="vehicle-ride.html">Registrar Recorrido</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../index.php">Cerrar sesión</a>
+                <a class="nav-link logout" >Cerrar sesión</a>
             </li>
         </ul>
 

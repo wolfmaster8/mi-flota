@@ -1,6 +1,9 @@
 <?php
-include_once '../components/header.php';
-include_once '../components/breadcumbs.php';
+session_start();
+
+include_once 'shared/isUserAuthorized.php';
+include_once 'components/header.php';
+include_once 'components/breadcumbs.php';
 renderHeader('Dashboard');
 renderBreadcumb();
 ?>
@@ -26,7 +29,8 @@ renderBreadcumb();
 
 
 <?php
-include_once '../components/footer.php';
-renderFooter()
+include_once 'components/footer.php';
+renderFooter();
+renderLogoutFunction();
 ?>
 

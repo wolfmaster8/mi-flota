@@ -1,6 +1,6 @@
 <?php
-include_once '../components/header.php';
-include_once '../components/breadcumbs.php';
+include_once 'components/header.php';
+include_once 'components/breadcumbs.php';
 renderHeader('Dashboard');
 renderBreadcumb(['Configuración de nuevo vehículo']);
 ?>
@@ -110,7 +110,7 @@ renderBreadcumb(['Configuración de nuevo vehículo']);
 
 
 <?php
-include_once '../components/footer.php';
+include_once 'components/footer.php';
 renderFooter()
 ?>
 
