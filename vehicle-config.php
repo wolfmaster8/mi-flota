@@ -7,7 +7,7 @@ renderHeader('Adicionar vehículo');
 renderBreadcumb(['Configuración de nuevo vehículo']);
 ?>
 
-<div class="container w-50 ">
+<div class="container w-75 mb-4">
     <div class="row ">
         <div class="col-12">
             <h3 class="text-center my-5">Adiciona los detalles de tu vehículo</h3>
@@ -16,14 +16,14 @@ renderBreadcumb(['Configuración de nuevo vehículo']);
                     <div class="col-12">
                         <p class="mb-2 text-primary">Información básica</p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label for="plate">Placa</label>
                             <input autofocus id="plate" name="plate" class="form-control form-control-sm" maxlength="6" type="text"/>
                         </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label for="vehicleBrand">Marca</label>
                             <select id="vehicleBrand" name="vehicleBrand" class="form-control form-control-sm">
@@ -32,14 +32,14 @@ renderBreadcumb(['Configuración de nuevo vehículo']);
                         </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label for="vehicleModel">Modelo</label>
                             <input id="vehicleModel" name="vehicleModel" class="form-control form-control-sm" type="text"/>
                         </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label for="vehicleYear">Año</label>
                             <select id="vehicleYear" name="vehicleYear" class="form-control form-control-sm">
@@ -48,7 +48,7 @@ renderBreadcumb(['Configuración de nuevo vehículo']);
                         </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label for="color">Color</label>
                             <input id="color" class="form-control" type="color" name="color">
@@ -60,21 +60,21 @@ renderBreadcumb(['Configuración de nuevo vehículo']);
                     <div class="col-12">
                         <p class="mb-2 text-primary">Información de combustible</p>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label for="literByKm">Consumo (L/Km)</label>
                             <input class="form-control form-control-sm" name="literByKm" id="literByKm" type="number">
                         </div>
 
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label for="currentKm">Kilometraje actual</label>
                             <input class="form-control form-control-sm" name="currentKm" id="currentKm" type="number">
                         </div>
 
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label for="typeOfFuel">Tipo de Combustible</label>
                             <select id="typeOfFuel" name="typeOfFuel" class="form-control form-control-sm">

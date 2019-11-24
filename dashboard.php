@@ -36,7 +36,7 @@ renderDeleteAjaxScript();
         const parsedVehicles = JSON.parse(loadUserCars.responseText);
         if (parsedVehicles.length) {
             parsedVehicles.forEach(car => {
-                const template = `<div class="col-4 ">
+                const template = `<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                             <div class="card text-center" >
                             <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-muted mb-3 mt-2">
