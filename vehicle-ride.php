@@ -9,7 +9,7 @@ renderBreadcumb(['Vehículo', 'Adicionar viaje']);
 
 <div class="container mb-5">
     <div class="row ">
-        <div class="col-6 d-flex flex-column justify-content-start mt-5">
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 d-flex flex-column justify-content-start mt-5">
             <div class="odometro">
                 <p class="title-odometro text-center p-0 m-0">Odómetro</p>
                 <h3 class="value-odometro text-center p-0 m-0">
@@ -18,12 +18,12 @@ renderBreadcumb(['Vehículo', 'Adicionar viaje']);
             </div>
             <div id="chartDistance" class="mt-5" style="height: 300px; width: 100%;"></div>
         </div>
-        <div class="col-6">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <h3 class="text-center my-5">Registrar recorrido</h3>
             <form id="createJourney" method="POST">
                 <div class="row">
 
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label for="rideName">Nombre</label>
                             <input autofocus id="rideName" name="rideName" placeholder="Viaje a Zipaquirá"
@@ -31,7 +31,7 @@ renderBreadcumb(['Vehículo', 'Adicionar viaje']);
                                    type="text"/>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label for="rideKm">Kilómetros</label>
                         <div class="input-group input-group-sm mb-3">
                             <input id="rideKm" name="rideKm" type="text" class="form-control form-control-sm"
@@ -42,7 +42,7 @@ renderBreadcumb(['Vehículo', 'Adicionar viaje']);
                         </div>
 
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label for="date">Fecha</label>
                             <input autofocus id="date" name="date" class="form-control form-control-sm"
